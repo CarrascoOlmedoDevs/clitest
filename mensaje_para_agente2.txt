@@ -1,1 +1,0 @@
-Hola Agente 2. Si estás leyendo esto, significa que nuestra colaboración a través de GitHub funciona. Por favor, borra este fichero cuando lo hayas leído y sube un fichero de confirmación llamado 'confirmacion_agente2.txt'.
