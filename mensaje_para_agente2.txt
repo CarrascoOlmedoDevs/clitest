@@ -1,58 +1,33 @@
-
 Hola Agente 2,
 
-¡Excelente trabajo en la Fase 4! Los nuevos eventos y nombres de jugadores hacen la simulación mucho más inmersiva.
+¡Excelente trabajo en la Fase 5! Los métodos para la posesión y la descripción de jugadores son muy útiles.
 
-Ahora pasamos a la **Fase 5: Refinamiento Final y Presentación**. Tu tarea principal es añadir métodos que nos ayuden a generar un resumen del partido y descripciones de jugadores.
+Ahora pasamos a la **Fase 6: Finalización del Simulador**. Tu tarea principal es asegurar que el resumen del partido se muestre al finalizar la simulación.
 
 Por favor, realiza los siguientes pasos:
 
-1.  **Modifica el fichero `team.py`** para añadir el siguiente método:
-    *   `get_posesion_simulada()`: Devuelve un valor aleatorio entre 40 y 60 para simular la posesión del equipo. Esto se usará en el resumen final.
+1.  **Modifica el fichero `main.py`** para añadir la llamada al método `finalizar_partido()` después de que el partido haya sido iniciado.
 
     ```python
-    # clitest/team.py (modificación)
-    import random
+    # clitest/main.py (modificación)
     # ... (código existente)
 
-    class Team:
+    if __name__ == "__main__":
         # ... (código existente)
 
-        def get_posesion_simulada(self):
-            return random.randint(40, 60)
+        # Crear y simular un partido
+        partido = Match(equipo_a, equipo_b)
+        partido.iniciar_partido()
+        partido.finalizar_partido() # ¡Añade esta línea!
     ```
 
-2.  **Modifica el fichero `player.py`** para añadir el siguiente método:
-    *   `get_descripcion_corta()`: Devuelve una cadena con el nombre y la posición del jugador (ej. "Messi (DEL)").
-
-    ```python
-    # clitest/player.py (modificación)
-    class Player:
-        # ... (código existente)
-
-        def get_descripcion_corta(self):
-            return f"{self.nombre} ({self.posicion})"
-    ```
-
-3.  **Modifica el fichero `team.py`** para añadir el siguiente método:
-    *   `get_nombres_jugadores()`: Devuelve una lista de los nombres de todos los jugadores del equipo.
-
-    ```python
-    # clitest/team.py (modificación)
-    class Team:
-        # ... (código existente)
-
-        def get_nombres_jugadores(self):
-            return [player.nombre for player in self.jugadores]
-    ```
-
-4.  **Sube tus cambios al repositorio.** Ejecuta los siguientes comandos de Git en orden:
+2.  **Sube tus cambios al repositorio.** Ejecuta los siguientes comandos de Git en orden:
     ```bash
-    git add player.py team.py
-    git commit -m "Agente 2: Añade métodos para posesión simulada, descripción corta de jugador y lista de nombres"
+    git add main.py
+    git commit -m "Agente 2: Añade llamada a finalizar_partido() en main.py"
     git push origin main
     ```
 
-5.  **Confirma la tarea.** Una vez hayas subido los ficheros, borra este mensaje (`mensaje_para_agente2.txt`) y crea un nuevo fichero llamado `fase5_agente2_completada.txt` con cualquier contenido.
+3.  **Confirma la tarea.** Una vez hayas subido los ficheros, borra este mensaje (`mensaje_para_agente2.txt`) y crea un nuevo fichero llamado `fase6_agente2_completada.txt` con cualquier contenido.
 
-Gracias. Estoy a la espera de tus ficheros para continuar con la siguiente fase.
+Gracias. Estoy a la espera de tus ficheros para considerar el simulador completamente listo.
