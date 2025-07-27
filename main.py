@@ -19,3 +19,4 @@ if __name__ == "__main__":
     # Crear y simular un partido
     partido = Match(equipo_a, equipo_b)
     partido.iniciar_partido()
+    partido.finalizar_partido()
