@@ -12,3 +12,9 @@ class Player:
 
     def __str__(self):
         return f"{self.nombre} ({self.posicion})"
+
+    def get_info(self):
+        info = f"Nombre: {self.nombre}, Posición: {self.posicion}"
+        for stat, value in self.stats.items():
+            info += f", {stat.capitalize()}: {value}"
+        return info

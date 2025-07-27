@@ -1,4 +1,6 @@
+import random
 from player import Player
+from config import POSICIONES
 
 class Team:
     def __init__(self, nombre, jugadores):
@@ -9,3 +11,20 @@ class Team:
 
     def __str__(self):
         return self.nombre
+
+    @classmethod
+    def generar_equipo_aleatorio(cls, nombre_equipo):
+        jugadores = []
+        # Portero
+        jugadores.append(Player(f"PO_{nombre_equipo}_1", "PO", {"parada": random.randint(70, 95)}))
+        # Defensas
+        for i in range(1, 5):
+            jugadores.append(Player(f"DEF_{nombre_equipo}_{i}", "DEF", {"defensa": random.randint(60, 90), "velocidad": random.randint(50, 80)}))
+        # Mediocentros
+        for i in range(1, 4):
+            jugadores.append(Player(f"MED_{nombre_equipo}_{i}", "MED", {"pase": random.randint(60, 90), "velocidad": random.randint(50, 85)}))
+        # Delanteros
+        for i in range(1, 4):
+            jugadores.append(Player(f"DEL_{nombre_equipo}_{i}", "DEL", {"tiro": random.randint(60, 95), "velocidad": random.randint(60, 90)}))
+
+        return cls(nombre_equipo, jugadores)
