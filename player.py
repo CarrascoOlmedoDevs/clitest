@@ -32,3 +32,6 @@ class Player:
 
     def get_valor_regate(self):
         return (self.stats.get("velocidad", 0) * 0.7) + (self.stats.get("tiro", 0) * 0.3)
+
+    def get_descripcion_corta(self):
+        return f"{self.nombre} ({self.posicion})"

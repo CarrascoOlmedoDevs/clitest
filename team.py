@@ -49,3 +49,9 @@ class Team:
             if p.posicion == "PO":
                 return p
         return None
+
+    def get_posesion_simulada(self):
+        return random.randint(40, 60)
+
+    def get_nombres_jugadores(self):
+        return [player.nombre for player in self.jugadores]
