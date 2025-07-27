@@ -26,3 +26,9 @@ class Player:
     def get_valor_defensa(self):
         # Ejemplo de cálculo, puedes ajustarlo
         return (self.stats.get("defensa", 0) * 0.7) + (self.stats.get("velocidad", 0) * 0.3)
+
+    def get_valor_pase(self):
+        return (self.stats.get("pase", 0) * 0.8) + (self.stats.get("velocidad", 0) * 0.2)
+
+    def get_valor_regate(self):
+        return (self.stats.get("velocidad", 0) * 0.7) + (self.stats.get("tiro", 0) * 0.3)
