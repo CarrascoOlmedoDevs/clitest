@@ -12,10 +12,9 @@ if __name__ == "__main__":
     jugador4 = Player("Ramos", "DEF", {"tiro": 60, "pase": 70, "velocidad": 70, "defensa": 90})
     jugador5 = Player("Neuer", "PO", {"parada": 95})
 
-    # Crear equipos de ejemplo (necesitan 11 jugadores, esto es solo un placeholder)
-    # Asumo que el Agente 2 creará la lógica para generar equipos completos
-    equipo_a = Team("Equipo A", [jugador1, jugador3, jugador4, jugador5] + [Player(f"JugadorA{i}", "DEF", {}) for i in range(7)]) # Placeholder
-    equipo_b = Team("Equipo B", [jugador2] + [Player(f"JugadorB{i}", "MED", {}) for i in range(10)]) # Placeholder
+    # Crear equipos de ejemplo usando la función de generación aleatoria
+    equipo_a = Team.generar_equipo_aleatorio("Equipo A")
+    equipo_b = Team.generar_equipo_aleatorio("Equipo B")
 
     # Crear y simular un partido
     partido = Match(equipo_a, equipo_b)

@@ -1,5 +1,6 @@
 
 # clitest/match.py
+import random
 from team import Team
 from config import DURACION_PARTIDO
 
@@ -15,7 +16,19 @@ class Match:
         self.log_eventos.append("¡Comienza el partido!")
         print("¡Comienza el partido!")
 
-        # La lógica principal de la simulación irá aquí
+        for self.minuto_actual in range(1, DURACION_PARTIDO + 1):
+            # Lógica de eventos por minuto
+            self.log_eventos.append(f"Minuto {self.minuto_actual}")
+            # Simulación de eventos (muy básica por ahora)
+            if random.random() < 0.01: # 1% de probabilidad de gol por minuto
+                equipo_anotador = random.choice([self.equipo_local, self.equipo_visitante])
+                self.marcador[equipo_anotador.nombre] += 1
+                evento = f"¡GOL de {equipo_anotador.nombre}! Marcador: {self.equipo_local.nombre} {self.marcador[self.equipo_local.nombre]} - {self.marcador[self.equipo_visitante.nombre]} {self.equipo_visitante.nombre}"
+                self.log_eventos.append(evento)
+                print(evento)
+
+        self.log_eventos.append("Tiempo reglamentario cumplido.")
+        print("Tiempo reglamentario cumplido.")
 
         self.finalizar_partido()
 
