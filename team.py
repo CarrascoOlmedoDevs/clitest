@@ -28,3 +28,21 @@ class Team:
             jugadores.append(Player(f"DEL_{nombre_equipo}_{i}", "DEL", {"tiro": random.randint(60, 95), "velocidad": random.randint(60, 90)}))
 
         return cls(nombre_equipo, jugadores)
+
+    def get_mejor_atacante(self):
+        atacantes = [p for p in self.jugadores if p.posicion in ["MED", "DEL"]]
+        if not atacantes:
+            return max(self.jugadores, key=lambda p: p.get_valor_ataque())
+        return max(atacantes, key=lambda p: p.get_valor_ataque())
+
+    def get_mejor_defensor(self):
+        defensores = [p for p in self.jugadores if p.posicion in ["DEF", "MED"]]
+        if not defensores:
+            return max(self.jugadores, key=lambda p: p.get_valor_defensa())
+        return max(defensores, key=lambda p: p.get_valor_defensa())
+
+    def get_portero(self):
+        for p in self.jugadores:
+            if p.posicion == "PO":
+                return p
+        return None

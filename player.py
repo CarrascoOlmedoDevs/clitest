@@ -18,3 +18,11 @@ class Player:
         for stat, value in self.stats.items():
             info += f", {stat.capitalize()}: {value}"
         return info
+
+    def get_valor_ataque(self):
+        # Ejemplo de cálculo, puedes ajustarlo
+        return (self.stats.get("tiro", 0) * 0.6) + (self.stats.get("pase", 0) * 0.4)
+
+    def get_valor_defensa(self):
+        # Ejemplo de cálculo, puedes ajustarlo
+        return (self.stats.get("defensa", 0) * 0.7) + (self.stats.get("velocidad", 0) * 0.3)
